@@ -17,29 +17,20 @@ var (
 )
 
 func main() {
-	flag.Parse()
-
 	// create kubernetes client
 	client, err := newClient(*KubeConfig)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Get all services in all namespace
-	services, err := client.CoreV1().Services("").List(context.TODO(), metav1.ListOptions{})
+	list, err := client.CoreV1().Nodes().List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
-		log.Fatal(err)
+		fmt.Fprintf(os.Stderr, "error listing nodes: %v", err)
+		os.Exit(1)
 	}
 
-	for _, service := range services.Items {
-		fmt.Printf("Service name= %s namespace=%s type=%s \n", service.Name, service.Namespace, service.Spec.Type)
-		if service.Spec.Type == "ClusterIP" {
-			for _, port := range service.Spec.Ports {
-				if port.Name != "" {
-					fmt.Printf("ClientIP Port: name=%s port=%d\n", port.Name, port.Port)
-				}
-			}
-		}
+	for _, node := range list.Items {
+		fmt.Printf("Node: %s\n", node.Name)
 	}
 }
 
