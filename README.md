@@ -2,8 +2,9 @@
 
 ## Module Lists
 
-- [list-services](./list-services)
-- [list-nodes](./list-nodes)
+- [list-services](list-services)
+- [list-nodes](list-nodes)
+- [list-pods](list-pods)
 
 
 ## Develop modules
