@@ -47,5 +47,4 @@ make
 
 ...snip...
 cd $GOPATH/src/github.com/yokawasa/k8s-client-sandbox/<new-module> && GO111MODULE=on go build -o $GOPATH/src/github.com/yokawasa/k8s-client-sandbox/dist/<new-module> main.go
-
 ```
