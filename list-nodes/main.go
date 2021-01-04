@@ -30,7 +30,13 @@ func main() {
 	}
 
 	for _, node := range list.Items {
-		fmt.Printf("Node: %s\n", node.Name)
+		fmt.Printf("Node name %s \n", node.Name)
+		//fmt.Printf("Node labels: %#v \n", node.Labels)
+		//Dump labels
+		labels := node.Labels
+		for k, v := range labels {
+			fmt.Printf("Node %s Label %s:%s\n", node.Name, k, v)
+		}
 	}
 }
 
