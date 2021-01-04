@@ -28,3 +28,24 @@ vi main.go
 go mod init new-module
 go build
 ```
+
+Once you confirm the module build, add the name of module to `Makefile` on the project root
+
+```
+.PHONY: clean all list-services list-nodes list-pods ... <new-module>
+...snip...
+TARGETS=\
+  list-services \
+  list-nodes \
+  list-pods \
+  ...snip.. 
+  <new-module> \
+```
+Then, the module can be built with the Makefile like this
+```
+make
+
+...snip...
+cd $GOPATH/src/github.com/yokawasa/k8s-client-sandbox/<new-module> && GO111MODULE=on go build -o $GOPATH/src/github.com/yokawasa/k8s-client-sandbox/dist/<new-module> main.go
+
+```
