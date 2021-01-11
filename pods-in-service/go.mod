@@ -1,4 +1,4 @@
-module pods-in-services
+module pods-in-service
 
 go 1.13
 

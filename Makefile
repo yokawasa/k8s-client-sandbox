@@ -1,4 +1,4 @@
-.PHONY: clean all list-services list-nodes list-pods pods-in-services
+.PHONY: clean all list-services list-nodes list-pods pods-in-service
 
 .DEFAULT_GOAL := all
 
@@ -6,7 +6,7 @@ TARGETS=\
 	list-services \
 	list-nodes \
 	list-pods \
-	pods-in-services \
+	pods-in-service \
 
 cur   := $(shell pwd)
 

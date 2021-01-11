@@ -5,6 +5,7 @@
 - [list-services](list-services)
 - [list-nodes](list-nodes)
 - [list-pods](list-pods)
+- [pods-in-service](pods-in-serivce)
 
 
 ## Develop modules
